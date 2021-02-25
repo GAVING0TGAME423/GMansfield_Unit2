@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
     public float HorizontalInput;
     public float speed = 10;
     private float xbound = 20;
+    public GameObject Projectile;
     void Start()
     {
         
@@ -26,5 +27,11 @@ public class PlayerController : MonoBehaviour
         {
             transform.position = new Vector3(-xbound, transform.position.y, transform.position.z);
         }
+
+       if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Instantiate(Projectile, transform.position, Projectile.transform.rotation);
+        }
+
     }
 }
