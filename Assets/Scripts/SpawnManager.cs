@@ -8,20 +8,21 @@ public class SpawnManager : MonoBehaviour
     private float XPositionRange = 19;
     void Start()
     {
-        
+        InvokeRepeating("SpawnRandomAnimal", 3, 1.5f);
     }
 
    
     void Update()
     {
         
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            float randomXposition = Random.Range(-XPositionRange, XPositionRange);
-            int animalprefabIndex = Random.Range(0, animalprefabs.Length);
-            Vector3 random = new Vector3(randomXposition, 0, 21);
-            Instantiate(animalprefabs[animalprefabIndex], random,
-                animalprefabs[animalprefabIndex].transform.rotation);
-        }
+    }
+
+    void SpawnRandomAnimal()
+    {
+        float randomXposition = Random.Range(-XPositionRange, XPositionRange);
+        int animalprefabIndex = Random.Range(0, animalprefabs.Length);
+        Vector3 random = new Vector3(randomXposition, 0, 21);
+        Instantiate(animalprefabs[animalprefabIndex], random,
+            animalprefabs[animalprefabIndex].transform.rotation);
     }
 }
